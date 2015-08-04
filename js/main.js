@@ -15,7 +15,7 @@ $(document).on('ready', function() {
     //values to add to the DOM
     var $subTotal = subTotal($mealPrice, $tipRate);
     var $tipAmount = tipAmount($mealPrice, $tipRate);
-    var $total = total($mealPrice, $tipRate);
+    var $total = total($subTotal, $tipAmount);
     $tipTotal += $tipAmount;
     $mealCount++;
     var $averageTip = average($tipTotal, $mealCount).toFixed(2);
