@@ -6,8 +6,8 @@ function tipAmount (price, tipRate) {
   return price * (tipRate)/100;
 }
 
-function total (subTotal, tip) {
-  return subTotal + tip;
+function total (subTotal, tipAmount) {
+  return subTotal + tipAmount;
 }
 
 function average (total, count) {
