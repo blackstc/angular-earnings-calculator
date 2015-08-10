@@ -1,9 +1,11 @@
 var code = require('../js/utility.js');
 
+var meal = {mealPrice: 100, taxRate: 10, tipRate: 15, subTotal: 0, tipAmount: 0, total: 0};
+
 
 describe('subtotal', function() {
   it('should calculate price less taxRate times price', function() {
-    expect(code.subTotal(10, 10)).toEqual(9);
+    expect(code.calcSubTotal(meal.mealPrice, meal.taxRate)).toEqual(90);
   });
 });
 
