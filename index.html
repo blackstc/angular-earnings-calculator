@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html ng-app="earningsCalculator" ng-controller="earningsController">
   <head>
     <meta charset="utf-8">
-    <title>Earnings Calculator!</title>
+    <title>Earnings Calculator in Angular!</title>
     <!-- stylesheets -->
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
@@ -44,18 +44,18 @@
               <!-- customer totals -->
               <h2 class="text-center">Total Charges<br><span class="small">Charge per customer</span></h2>
               <div class="totals">
-                <p>Subtotal:</p>
-                <p>Tip:</p>
-                <p>Total:</p>
+                <p>Subtotal: {{subtotal | currency}}</p>
+                <p>Tip: {{tip | currency}}</p>
+                <p>Total: {{total| currency}}</p>
               </div>
             </div>
             <div class="col-sm-6">
               <!-- all totals -->
               <h2 class="text-center">Total Earnings<br><span class="small">Running totals</span></h2>
               <div class="totals">
-                <p>Total Tips:</p>
-                <p>Meal count:</p>
-                <p>Average tip:</p>
+                <p>Total Tips: {{totalTip | currency}}</p>
+                <p>Meal count: {{mealCount}}</p>
+                <p>Average tip: {{averageTip | currency}}</p>
               </div>
               <div class="text-center">
                 <input class="btn btn-default btn-sm" type="button" value="Reset">
@@ -63,16 +63,15 @@
             </div>
           </div>
         </div>
-
       </div>
-
     </div>
 
     <!-- scripts -->
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.10/angular.min.js"></script>
     <script type="text/javascript" src="js/utility.js"></script>
-    <script type="text/javascript" src="second.js"></script>
-    <!-- // <script type="text/javascript" src="js/main.js"></script> -->
+    <script type="text/javascript" src="js/ang.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
   </body>
 </html>

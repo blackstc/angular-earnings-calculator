@@ -31,22 +31,6 @@ Meal.prototype.calcAverageTip = function(totalTipAmount, mealCount) {
   return averageTip = totalTipAmount / mealCount;
 };
 
-Meal.prototype.updateLocalStorage = function (newMeal) {
-  //get bills from local storage and add bill to local storage
-  var localStorageArray = JSON.parse(localStorage.getItem("bills"));
-  localStorageArray.push(newMeal);
-  localStorage.setItem("bills", JSON.stringify(localStorageArray));
-};
-
-Meal.prototype.updateLocalStorageTotals = function (tipAmount, mealCount, averageTip) {
-  var localStorageObj = JSON.parse(localStorage.getItem("earnings"));
-  localStorageObj.tips = tipAmount;
-  localStorageObj.meals = mealCount;
-  localStorageObj.averageTip = averageTip;
-  localStorage.setItem("earnings", JSON.stringify(localStorageObj));
-
-
-};
 Meal.prototype.toDom = function() {
 
   var $totalPerCustomer = $('.totals').eq(0).find("p");
@@ -60,16 +44,40 @@ Meal.prototype.toDom = function() {
   $runningTotals.eq(2).html("Average tip: " + (averageTip.toFixed(2)));
 };
 
+var Waiter = function(name) {
+  this.name = name;
+  this.meals = [];
+  this.totalTips = 0;
+  this.totalSales = 0;
+};
+
+Waiter.prototype.addMeal = function (meal) {
+  this.meals.push(meal);
+};
+
+Waiter.prototype.totalTip = function () {
+  var tip = 0;
+
+  for (var i = 0; i < this.meals.length; i++) {
+    tip += this.meals[i].tipAmount;
+  }
+  this.totalTips = tip;
+  return tip;
+};
+
+Waiter.prototype.totalSales = function () {
+  var total = 0;
+
+  for (var i = 0; i < this.meals.length; i++) {
+    total += this.meals[i].subTotal;
+  }
+  this.totalTips = total;
+  return total;
+};
+
 module.exports = {
   calcSubTotal: calcSubTotal,
   tipAmount: tipAmount,
   total: total,
   average: average
 };
-
-
-//Local storage
-function LocalStorage(name, data) {
-  this.name = name;
-  this.data = data;
-}
