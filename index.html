@@ -21,13 +21,13 @@
           <h2>Meal Details</h2>
           <br>
           <form name="mealForm">
-            <div class="form-group">
+            <div class="form-group">Meal Price:<br>
               <input class="form-input" type="number" ng-model="mealPrice" placeholder="{{mealPrice | currency}}" name="meal-price" min="0" step=".01" required>
             </div>
-            <div class="form-group">
+            <div class="form-group">Tax Rate:<br>
               <input class="form-input" type="number" ng-model="taxRate" placeholder="{{taxRate | number}}" name="meal-taxrate" min="0" max="100" step=".01" required>
             </div>
-            <div class="form-group">
+            <div class="form-group">Tip Rate:<br>
               <input class="form-input" type="number" ng-model="tipRate" placeholder="{{tipRate | number}}" name="meal-tiprate" min="0" max="100" step=".01" required>
             </div>
             <input class="btn btn-default btn-sm" type="submit" ng-click="calculateTotals()" value="Submit">

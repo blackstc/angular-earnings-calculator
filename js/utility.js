@@ -2,6 +2,11 @@ var mealCount = 0;
 var tipTotal = 0;
 var averageTip = 0;
 
+//--------------//
+// *** MEAL *** //
+//--------------//
+
+//class constructor
 var Meal = function (mealPrice, taxRate, tipRate) {
   this.mealPrice = mealPrice;
   this.taxRate = taxRate;
@@ -30,6 +35,10 @@ Meal.prototype.calcTipTotal = function() {
   return tipTotal += this.tipAmount;
 };
 
+
+//----------------//
+// *** Waiter *** //
+//----------------//
 
 var Waiter = function(name) {
   this.name = name;
@@ -67,10 +76,3 @@ Waiter.prototype.calcTotalSales = function () {
 Waiter.prototype.calcAvgTip = function () {
   return this.calcTotalTips() / this.meals.length;
 };
-
-// module.exports = {
-//   calcSubTotal: calcSubTotal,
-//   tipAmount: tipAmount,
-//   total: total,
-//   average: average
-// };
