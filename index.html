@@ -22,15 +22,15 @@
           <br>
           <form name="mealForm">
             <div class="form-group">
-              <input class="form-input" type="number" placeholder="Meal price..." name="meal-price" min="0" step=".01" required>
+              <input class="form-input" type="number" ng-model="mealPrice" placeholder="{{mealPrice | currency}}" name="meal-price" min="0" step=".01" required>
             </div>
             <div class="form-group">
-              <input class="form-input" type="number" placeholder="Tax rate... "name="meal-taxrate" min="0" max="100" step=".01" required>
+              <input class="form-input" type="number" ng-model="taxRate" placeholder="{{taxRate | number}}" name="meal-taxrate" min="0" max="100" step=".01" required>
             </div>
             <div class="form-group">
-              <input class="form-input" type="number" placeholder="Tip percentage..." name="meal-tiprate" min="0" max="100" step=".01" required>
+              <input class="form-input" type="number" ng-model="tipRate" placeholder="{{tipRate | number}}" name="meal-tiprate" min="0" max="100" step=".01" required>
             </div>
-            <input class="btn btn-default btn-sm" type="submit" value="Submit">
+            <input class="btn btn-default btn-sm" type="submit" ng-click="calculateTotals()" value="Submit">
             <input class="btn btn-default btn-sm" type="button" value="Clear">
             <br><br>
           </form>
@@ -68,10 +68,9 @@
 
     <!-- scripts -->
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.10/angular.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/utility.js"></script>
     <script type="text/javascript" src="js/ang.js"></script>
-    <script type="text/javascript" src="js/main.js"></script>
   </body>
 </html>
